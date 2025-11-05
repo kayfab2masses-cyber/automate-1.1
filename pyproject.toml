@@ -1,0 +1,24 @@
+[project]
+name = "ettin_entertainment_daggerheart_marketing_team"
+version = "0.1.0"
+description = "ettin_entertainment_daggerheart_marketing_team using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]==1.3.0"
+]
+
+[project.scripts]
+ettin_entertainment_daggerheart_marketing_team = "ettin_entertainment_daggerheart_marketing_team.main:run"
+run_crew = "ettin_entertainment_daggerheart_marketing_team.main:run"
+train = "ettin_entertainment_daggerheart_marketing_team.main:train"
+replay = "ettin_entertainment_daggerheart_marketing_team.main:replay"
+test = "ettin_entertainment_daggerheart_marketing_team.main:test"
+run_with_trigger = "ettin_entertainment_daggerheart_marketing_team.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

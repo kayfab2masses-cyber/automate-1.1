@@ -1,0 +1,85 @@
+---
+monitor_community_discussions_for_engagement_opportunities:
+  description: 'Scan {platforms} (Reddit, Discord, X, TikTok) for Daggerheart discussions
+    where our {product_focus} could provide genuine value. Focus on identifying: genuine
+    help-seeking (not venting), questions related to our product areas, high-visibility
+    conversations with influential community members, and trending pain points. Create
+    a prioritized list of engagement opportunities with context about why each is
+    valuable.'
+  expected_output: A prioritized engagement queue with 5-10 high-value conversation
+    opportunities, including platform, conversation context, why it's relevant to
+    our products, engagement potential assessment, and any mechanical topics that
+    will require Rules Expert validation.
+  agent: community_engagement_strategist_social_media_scout
+gather_market_intelligence_and_trend_analysis:
+  description: 'Research current TTRPG market trends, focusing on: {competitor_focus}
+    (Critical Role/Darrington Press) recent announcements and upcoming releases, trending
+    mechanical discussions in the Daggerheart community, popular adventure themes
+    and content types, competitor performance and market positioning, underserved
+    niches where Ettin Entertainment could provide value. Identify synergy opportunities
+    for product releases that complement major industry announcements.'
+  expected_output: 'A comprehensive market intelligence report including: competitor
+    release calendar, trending themes and mechanical topics, market gaps analysis,
+    synergy opportunities for upcoming releases, and recommendations for content priorities
+    based on market demand.'
+  agent: market_intelligence_synergy_analyst
+validate_mechanical_accuracy_of_engagement_opportunities:
+  description: 'Review the engagement opportunities identified by the Community Strategist,
+    particularly those involving Daggerheart mechanics. For each mechanical topic:
+    verify accuracy of the community discussion, provide correct Daggerheart terminology
+    and concepts, confirm whether our {product_focus} genuinely addresses the issue,
+    flag any potential mechanical errors in the community discussion, and provide
+    guidance for accurate responses. Ensure all responses will use proper Daggerheart
+    terms (spotlight not rounds, Fear/Hope not action economy, etc.).'
+  expected_output: 'A validation report for each engagement opportunity containing:
+    mechanical accuracy assessment, correct terminology to use, relevant product connections,
+    any corrections needed for community misconceptions, and approval/guidance for
+    response drafting.'
+  agent: daggerheart_rules_expert_quality_control_specialist
+  context:
+  - monitor_community_discussions_for_engagement_opportunities
+draft_marketing_content_and_community_responses:
+  description: 'Create compelling marketing content based on validated engagement
+    opportunities and market intelligence. Draft: community responses for approved
+    engagement opportunities, social media posts highlighting our {product_focus},
+    promotional content that leads with value and subtly mentions products, content
+    that demonstrates expertise while maintaining Ettin Entertainment''s helpful,
+    community-focused brand voice. All drafts must incorporate Rules Expert guidance
+    and avoid any mechanical errors.'
+  expected_output: 'A collection of ready-to-publish marketing content including:
+    drafted community responses with proper Daggerheart terminology, social media
+    posts optimized for each platform, promotional copy that prioritizes value over
+    sales pitch, and content calendar suggestions based on market intelligence findings.'
+  agent: content_response_writer_with_brand_voice_expertise
+  context:
+  - validate_mechanical_accuracy_of_engagement_opportunities
+  - gather_market_intelligence_and_trend_analysis
+final_quality_control_and_content_validation:
+  description: 'Perform final validation of all drafted marketing content before publication.
+    Review each piece for: mechanical accuracy and proper Daggerheart terminology,
+    alignment with official design principles (asymmetrical mechanics, Fear/Hope economy,
+    spotlight system), brand voice consistency, product claims accuracy, and ensure
+    no D&D terminology contamination (rounds, initiative, CR, etc.). Provide final
+    approval or request revisions with specific guidance.'
+  expected_output: 'A finalized content package with quality control stamps including:
+    approved social media responses and posts, validated product descriptions and
+    promotional content, mechanical accuracy confirmation for all claims, final publication
+    recommendations, and a quality control log documenting any corrections made.'
+  agent: daggerheart_rules_expert_quality_control_specialist
+  context:
+  - draft_marketing_content_and_community_responses
+analyze_performance_and_optimize_marketing_strategy:
+  description: 'Analyze the performance of published marketing content and provide
+    optimization recommendations. Track: engagement rates by content type and platform,
+    click-through rates to product pages, conversion attribution from marketing activities
+    to sales, community sentiment responses, optimal posting times and content formats.
+    Correlate marketing activities with revenue impact and suggest pricing, bundling,
+    and promotional strategies.'
+  expected_output: 'A comprehensive performance and optimization report including:
+    engagement metrics analysis by content type, conversion tracking and revenue attribution,
+    community sentiment assessment, recommendations for optimal posting schedules,
+    suggested pricing and promotional strategies, and strategic recommendations for
+    future marketing campaigns.'
+  agent: analytics_revenue_optimizer
+  context:
+  - final_quality_control_and_content_validation
