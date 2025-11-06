@@ -11,6 +11,8 @@ monitor_community_discussions_for_engagement_opportunities:
     our products, engagement potential assessment, and any mechanical topics that
     will require Rules Expert validation.
   agent: community_engagement_strategist_social_media_scout
+  output_file: 'engagement_opportunities.txt'
+
 gather_market_intelligence_and_trend_analysis:
   description: 'Research current TTRPG market trends, focusing on: {competitor_focus}
     (Critical Role/Darrington Press) recent announcements and upcoming releases, trending
@@ -23,6 +25,8 @@ gather_market_intelligence_and_trend_analysis:
     synergy opportunities for upcoming releases, and recommendations for content priorities
     based on market demand.'
   agent: market_intelligence_synergy_analyst
+  output_file: 'market_intelligence_report.txt'
+
 validate_mechanical_accuracy_of_engagement_opportunities:
   description: 'Review the engagement opportunities identified by the Community Strategist,
     particularly those involving Daggerheart mechanics. For each mechanical topic:
@@ -38,6 +42,8 @@ validate_mechanical_accuracy_of_engagement_opportunities:
   agent: daggerheart_rules_expert_quality_control_specialist
   context:
   - monitor_community_discussions_for_engagement_opportunities
+  output_file: 'validation_report.txt'
+
 draft_marketing_content_and_community_responses:
   description: 'Create compelling marketing content based on validated engagement
     opportunities and market intelligence. Draft: community responses for approved
@@ -54,6 +60,8 @@ draft_marketing_content_and_community_responses:
   context:
   - validate_mechanical_accuracy_of_engagement_opportunities
   - gather_market_intelligence_and_trend_analysis
+  output_file: 'drafted_marketing_content.txt'
+
 final_quality_control_and_content_validation:
   description: 'Perform final validation of all drafted marketing content before publication.
     Review each piece for: mechanical accuracy and proper Daggerheart terminology,
@@ -68,18 +76,4 @@ final_quality_control_and_content_validation:
   agent: daggerheart_rules_expert_quality_control_specialist
   context:
   - draft_marketing_content_and_community_responses
-analyze_performance_and_optimize_marketing_strategy:
-  description: 'Analyze the performance of published marketing content and provide
-    optimization recommendations. Track: engagement rates by content type and platform,
-    click-through rates to product pages, conversion attribution from marketing activities
-    to sales, community sentiment responses, optimal posting times and content formats.
-    Correlate marketing activities with revenue impact and suggest pricing, bundling,
-    and promotional strategies.'
-  expected_output: 'A comprehensive performance and optimization report including:
-    engagement metrics analysis by content type, conversion tracking and revenue attribution,
-    community sentiment assessment, recommendations for optimal posting schedules,
-    suggested pricing and promotional strategies, and strategic recommendations for
-    future marketing campaigns.'
-  agent: analytics_revenue_optimizer
-  context:
-  - final_quality_control_and_content_validation
+  output_file: 'final_content_package.txt'

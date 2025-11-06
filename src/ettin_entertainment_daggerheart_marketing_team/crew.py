@@ -111,30 +111,7 @@ class EttinEntertainmentDaggerheartMarketingTeamCrew:
             ),
             
         )
-    
-    @agent
-    def analytics_revenue_optimizer(self) -> Agent:
-        
-        return Agent(
-            config=self.agents_config["analytics_revenue_optimizer"],
-            
-            
-            tools=[				ScrapeWebsiteTool()],
-            reasoning=False,
-            max_reasoning_attempts=None,
-            inject_date=True,
-            allow_delegation=False,
-            max_iter=25,
-            max_rpm=None,
-            
-            max_execution_time=None,
-            llm=LLM(
-                model="gpt-4o-mini",
-                temperature=0.7,
-            ),
-            
-        )
-    
+     
 
     
     @task
@@ -181,16 +158,7 @@ class EttinEntertainmentDaggerheartMarketingTeamCrew:
             
             
         )
-    
-    @task
-    def analyze_performance_and_optimize_marketing_strategy(self) -> Task:
-        return Task(
-            config=self.tasks_config["analyze_performance_and_optimize_marketing_strategy"],
-            markdown=False,
-            
-            
-        )
-    
+        
 
     @crew
     def crew(self) -> Crew:
