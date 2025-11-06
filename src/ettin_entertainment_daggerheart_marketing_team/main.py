@@ -12,9 +12,9 @@ def run():
     Run the crew.
     """
     inputs = {
-        'platforms': 'sample_value',
-        'product_focus': 'sample_value',
-        'competitor_focus': 'sample_value'
+        'platforms': 'X (Twitter), Reddit, and YouTube',
+        'product_focus': 'Ettin Entertainment Daggerheart adventures and supplements',
+        'competitor_focus': 'Critical Role and Darrington Press'
     }
     EttinEntertainmentDaggerheartMarketingTeamCrew().crew().kickoff(inputs=inputs)
 
