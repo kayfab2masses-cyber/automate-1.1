@@ -11,7 +11,7 @@ monitor_community_discussions_for_engagement_opportunities:
     our products, engagement potential assessment, and any mechanical topics that
     will require Rules Expert validation.
   agent: community_engagement_strategist_social_media_scout
-  output_file: 'engagement_opportunities.txt'
+  output_file: 'engagement_opportunities.json'
 
 gather_market_intelligence_and_trend_analysis:
   description: 'Research current TTRPG market trends, focusing on: {competitor_focus}
@@ -25,7 +25,7 @@ gather_market_intelligence_and_trend_analysis:
     synergy opportunities for upcoming releases, and recommendations for content priorities
     based on market demand.'
   agent: market_intelligence_synergy_analyst
-  output_file: 'market_intelligence_report.txt'
+  output_file: 'market_intelligence_report.json'
 
 validate_mechanical_accuracy_of_engagement_opportunities:
   description: 'Review the engagement opportunities identified by the Community Strategist,
@@ -42,7 +42,7 @@ validate_mechanical_accuracy_of_engagement_opportunities:
   agent: daggerheart_rules_expert_quality_control_specialist
   context:
   - monitor_community_discussions_for_engagement_opportunities
-  output_file: 'validation_report.txt'
+  output_file: 'validation_report.json'
 
 draft_marketing_content_and_community_responses:
   description: 'Create compelling marketing content based on validated engagement
@@ -60,7 +60,7 @@ draft_marketing_content_and_community_responses:
   context:
   - validate_mechanical_accuracy_of_engagement_opportunities
   - gather_market_intelligence_and_trend_analysis
-  output_file: 'drafted_marketing_content.txt'
+  output_file: 'drafted_marketing_content.json'
 
 final_quality_control_and_content_validation:
   description: 'Perform final validation of all drafted marketing content before publication.
@@ -76,4 +76,4 @@ final_quality_control_and_content_validation:
   agent: daggerheart_rules_expert_quality_control_specialist
   context:
   - draft_marketing_content_and_community_responses
-  output_file: 'final_content_package.txt'
+  output_file: 'final_content_package.json'
