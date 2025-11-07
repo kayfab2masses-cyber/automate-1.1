@@ -12,6 +12,7 @@ monitor_community_discussions_for_engagement_opportunities:
     will require Rules Expert validation.
   agent: community_engagement_strategist_social_media_scout
   output_file: 'engagement_opportunities.txt'
+
 gather_market_intelligence_and_trend_analysis:
   description: 'Research current TTRPG market trends, focusing on: {competitor_focus}
     (Critical Role/Darrington Press) recent announcements and upcoming releases, trending
@@ -27,13 +28,15 @@ gather_market_intelligence_and_trend_analysis:
   output_file: 'market_intelligence_report.txt'
 
 validate_mechanical_accuracy_of_engagement_opportunities:
-  description: 'Review the engagement opportunities identified by the Community Strategist,
-    particularly those involving Daggerheart mechanics. For each mechanical topic:
-    verify accuracy of the community discussion, provide correct Daggerheart terminology
-    and concepts, confirm whether our {product_focus} genuinely addresses the issue,
-    flag any potential mechanical errors in the community discussion, and provide
-    guidance for accurate responses. Ensure all responses will use proper Daggerheart
-    terms (spotlight not rounds, Fear/Hope not action economy, etc.).'
+  description: >-
+    Review the engagement opportunities identified by the Community Strategist.
+    You MUST read this information from the file 'engagement_opportunities.txt'.
+    For each mechanical topic: verify accuracy of the community discussion, provide 
+    correct Daggerheart terminology and concepts, confirm whether our {product_focus} 
+    genuinely addresses the issue, flag any potential mechanical errors in the 
+    community discussion, and provide guidance for accurate responses. 
+    Ensure all responses will use proper Daggerheart
+    terms (spotlight not rounds, Fear/Hope not action economy, etc.).
   expected_output: 'A validation report for each engagement opportunity containing:
     mechanical accuracy assessment, correct terminology to use, relevant product connections,
     any corrections needed for community misconceptions, and approval/guidance for
@@ -44,13 +47,17 @@ validate_mechanical_accuracy_of_engagement_opportunities:
   output_file: 'validation_report.txt'
 
 draft_marketing_content_and_community_responses:
-  description: 'Create compelling marketing content based on validated engagement
-    opportunities and market intelligence. Draft: community responses for approved
+  description: >-
+    Create compelling marketing content based on validated engagement
+    opportunities and market intelligence. 
+    You MUST read the validation report from 'validation_report.txt' 
+    AND the market intelligence from 'market_intelligence_report.txt'.
+    Draft: community responses for approved
     engagement opportunities, social media posts highlighting our {product_focus},
     promotional content that leads with value and subtly mentions products, content
-    that demonstrates expertise while maintaining Ettin Entertainment''s helpful,
+    that demonstrates expertise while maintaining Ettin Entertainment's helpful,
     community-focused brand voice. All drafts must incorporate Rules Expert guidance
-    and avoid any mechanical errors.'
+    and avoid any mechanical errors.
   expected_output: 'A collection of ready-to-publish marketing content including:
     drafted community responses with proper Daggerheart terminology, social media
     posts optimized for each platform, promotional copy that prioritizes value over
@@ -62,12 +69,14 @@ draft_marketing_content_and_community_responses:
   output_file: 'drafted_marketing_content.txt'
 
 final_quality_control_and_content_validation:
-  description: 'Perform final validation of all drafted marketing content before publication.
+  description: >-
+    Perform final validation of all drafted marketing content before publication.
+    You MUST read the content from the file 'drafted_marketing_content.txt'.
     Review each piece for: mechanical accuracy and proper Daggerheart terminology,
     alignment with official design principles (asymmetrical mechanics, Fear/Hope economy,
     spotlight system), brand voice consistency, product claims accuracy, and ensure
-    no D&D terminology contamination (rounds, initiative, CR, etc.). Provide final
-    approval or request revisions with specific guidance.'
+    no D&D terminology contamination (rounds, initiative, CR, etc.). 
+    Provide final approval or request revisions with specific guidance.
   expected_output: 'A finalized content package with quality control stamps including:
     approved social media responses and posts, validated product descriptions and
     promotional content, mechanical accuracy confirmation for all claims, final publication
