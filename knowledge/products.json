@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "title": "The Tail of Two Feasts (A Thanksgiving One-Shot)",
+      "price": "Pay What You Want.",
+      "format": "Digital",
+      "description": "A Daggerheart-compatible Thanksgiving-themed one-shot adventure."
+    },
+    {
+      "title": "Gourd of Gloom (A Daggerheart Compatible Halloween One-Shot)",
+      "price": "Pay What You Want.",
+      "format": "Digital",
+      "description": "A Daggerheart-compatible Halloween-themed one-shot adventure."
+    }
+  ]
+}
