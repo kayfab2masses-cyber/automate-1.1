@@ -14,12 +14,15 @@ monitor_community_discussions_for_engagement_opportunities:
   output_file: 'engagement_opportunities.txt'
 
 gather_market_intelligence_and_trend_analysis:
-  description: 'Research current TTRPG market trends, focusing on: {competitor_focus}
+  description: >-
+    Research current TTRPG market trends, focusing on: {competitor_focus}
     (Critical Role/Darrington Press) recent announcements and upcoming releases, trending
     mechanical discussions in the Daggerheart community, popular adventure themes
     and content types, competitor performance and market positioning, underserved
     niches where Ettin Entertainment could provide value. Identify synergy opportunities
-    for product releases that complement major industry announcements.'
+    for product releases that complement major industry announcements.
+    **You MUST provide a detailed, multi-point report. Do not just repeat 
+    your instructions.**
   expected_output: 'A comprehensive market intelligence report including: competitor
     release calendar, trending themes and mechanical topics, market gaps analysis,
     synergy opportunities for upcoming releases, and recommendations for content priorities
@@ -49,7 +52,7 @@ validate_mechanical_accuracy_of_engagement_opportunities:
 draft_marketing_content_and_community_responses:
   description: >-
     Create compelling marketing content based on validated engagement
-    opportunities and market intelligence.
+    opportunities and market intelligence. 
     You MUST FIRST read the company's product catalog from 'knowledge/products.json' 
     and feature these specific products in your content.
     You MUST ALSO read the validation report from 'validation_report.txt' 
@@ -74,10 +77,14 @@ final_quality_control_and_content_validation:
   description: >-
     Perform final validation of all drafted marketing content before publication.
     You MUST read the content from the file 'drafted_marketing_content.txt'.
-    Review each piece for: mechanical accuracy and proper Daggerheart terminology,
-    alignment with official design principles (asymmetrical mechanics, Fear/Hope economy,
-    spotlight system), brand voice consistency, product claims accuracy, and ensure
-    no D&D terminology contamination (rounds, initiative, CR, etc.). 
+    Review each piece for: 
+    1.  **Common Sense & Temporal Relevance (e.g., do not promote Halloween in November).**
+    2.  Mechanical accuracy and proper Daggerheart terminology.
+    3.  Alignment with official design principles (asymmetrical mechanics, Fear/Hope economy,
+    spotlight system).
+    4.  Brand voice consistency.
+    5.  Product claims accuracy.
+    6.  Ensure no D&D terminology contamination (rounds, initiative, CR, etc.). 
     Provide final approval or request revisions with specific guidance.
   expected_output: 'A finalized content package with quality control stamps including:
     approved social media responses and posts, validated product descriptions and
