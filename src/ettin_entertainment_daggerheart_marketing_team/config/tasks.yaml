@@ -1,49 +1,59 @@
 ---
 monitor_community_discussions_for_engagement_opportunities:
-  description: 'Scan {platforms} (Reddit, Discord, X, TikTok) for Daggerheart discussions
-    where our {product_focus} could provide genuine value. Focus on identifying: genuine
-    help-seeking (not venting), questions related to our product areas, high-visibility
-    conversations with influential community members, and trending pain points. Create
-    a prioritized list of engagement opportunities with context about why each is
-    valuable.'
-  expected_output: A prioritized engagement queue with 5-10 high-value conversation
-    opportunities, including platform, conversation context, why it's relevant to
-    our products, engagement potential assessment, and any mechanical topics that
-    will require Rules Expert validation.
+  description: >-
+    Act as the primary social listener for Ettin Entertainment.
+    FIRST, you MUST read the 'knowledge/products.json' file to load all current product titles, keywords, and themes (e.g., 'Gourd of Gloom', 'spooky', 'fantasy football', 'heroic').
+    SECOND, you MUST scan {platforms} (Reddit, Discord, X, TikTok) for Daggerheart discussions.
+    Your goal is to find high-value engagement opportunities. You MUST prioritize your findings in this order:
+    1.  **Direct Product-Match:** Conversations where a user is asking for an adventure that *directly matches* one of our product's keywords (e.g., "looking for a good Halloween one-shot").
+    2.  **High-Visibility/Influence:** Trending posts from influential community members (reviewers, popular GMs) where a helpful comment would have high visibility.
+    3.  **General Help-Seeking:** New GMs asking for advice on topics our products solve (e.g., "how to run a low-prep one-shot," "ideas for a Tier 1 adventure").
+    Do NOT log simple venting or arguments. Focus on genuine questions and positive discussions.
+  expected_output: >-
+    A prioritized engagement queue (engagement_opportunities.txt) with 5-10 high-value conversation opportunities.
+    Each entry MUST include:
+    1.  Platform and direct URL to the conversation.
+    2.  Conversation Context (a brief summary).
+    3.  **Why It's Valuable** (e.g., "Matches 'Gourd of Gloom' 'spooky' keyword," "High-traffic post").
+    4.  **Suggested Engagement Angle** (e.g., "Offer helpful, value-first advice on running spooky adventures, then subtly link 'Gourd of Gloom' as a pre-built example").
+    5.  Any mechanical topics that require Rules Expert validation.
   agent: community_engagement_strategist_social_media_scout
   output_file: 'engagement_opportunities.txt'
 
 gather_market_intelligence_and_trend_analysis:
   description: >-
-    Research current TTRPG market trends, focusing on: {competitor_focus}
-    (Critical Role/Darrington Press) recent announcements and upcoming releases, trending
-    mechanical discussions in the Daggerheart community, popular adventure themes
-    and content types, competitor performance and market positioning, underserved
-    niches where Ettin Entertainment could provide value. Identify synergy opportunities
-    for product releases that complement major industry announcements.
-    **You MUST provide a detailed, multi-point report. Do not just repeat 
-    your instructions.**
-  expected_output: 'A comprehensive market intelligence report including: competitor
-    release calendar, trending themes and mechanical topics, market gaps analysis,
-    synergy opportunities for upcoming releases, and recommendations for content priorities
-    based on market demand.'
+    Act as the primary marketing strategist.
+    FIRST, you MUST read the 'knowledge/products.json' file to load all product titles, keywords, and themes.
+    Your core function is to create a "Synergy Map" by cross-referencing our product catalog against external events.
+    You MUST research:
+    1.  **Competitor News:** {competitor_focus} (Critical Role/Darrington Press) announcements, blog posts, and release schedules.
+    2.  **Market Trends:** Trending themes, discussions, and content types within the Daggerheart community.
+    3.  **Temporal & Cultural Events:** Upcoming holidays (e.g., Halloween, Thanksgiving), seasons, or major real-world events (e.g., a major sports final relevant to a 'Heroic' themed adventure).
+    Your analysis MUST identify **proactive synergy opportunities** and **full campaign ideas**.
+    You MUST provide a detailed, multi-point report.
+  expected_output: >-
+    A comprehensive market intelligence report (market_intelligence_report.txt) including:
+    1.  **Synergy Opportunities:** An explicit mapping of our products to external events. (e.g., "Darrington Press announced a 'Heroic' themed Dispatch. -> Our products use 'Heroic' themes. -> PROPOSE 3 posts linking 'heroic' gameplay to this news").
+    2.  **Proactive Campaigns:** A list of new marketing campaigns based on temporal events. (e.g., "It is November. -> Found 'Gourd of Gloom' in products.json with 'Halloween' keyword. -> PROPOSE 4-week 'Spooky Season' promotional calendar for this product.").
+    3.  Market Gaps Analysis: Underserved niches where our products could be positioned.
   agent: market_intelligence_synergy_analyst
   output_file: 'market_intelligence_report.txt'
 
 validate_mechanical_accuracy_of_engagement_opportunities:
   description: >-
-    Review the engagement opportunities identified by the Community Strategist.
-    You MUST read this information from the file 'engagement_opportunities.txt'.
-    For each mechanical topic: verify accuracy of the community discussion, provide 
-    correct Daggerheart terminology and concepts, confirm whether our {product_focus} 
-    genuinely addresses the issue, flag any potential mechanical errors in the 
-    community discussion, and provide guidance for accurate responses. 
-    Ensure all responses will use proper Daggerheart
-    terms (spotlight not rounds, Fear/Hope not action economy, etc.).
-  expected_output: 'A validation report for each engagement opportunity containing:
-    mechanical accuracy assessment, correct terminology to use, relevant product connections,
-    any corrections needed for community misconceptions, and approval/guidance for
-    response drafting.'
+    Act as the first-pass Quality Control and Brand Guardian.
+    You MUST read the engagement opportunities from 'engagement_opportunities.txt'.
+    You MUST ALSO read the 'knowledge/brand_voice_guide.json' file to load the official Ettin Entertainment persona.
+    For each opportunity, you must perform two checks:
+    1.  **Brand & Tone Validation:** Review the 'Suggested Engagement Angle.' Does it align with the 'helpful, expert, non-spammy' persona defined in the brand guide?
+    2.  **Mechanical Validation:** Review any Daggerheart mechanical topics mentioned. Verify accuracy, provide correct terminology (e.g., "spotlight," "Fear/Hope"), and confirm our {product_focus} genuinely addresses the user's question.
+    You must flag any potential errors or brand-voice violations and provide guidance for the writer.
+  expected_output: >-
+    A validation report (validation_report.txt) for each engagement opportunity containing:
+    1.  Brand Voice Approval:
+    2.  Mechanical Accuracy Assessment:
+    3.  Corrections & Guidance: (e.g., "Angle is too salesy. Re-frame to lead with 3 general tips for spooky games, *then* offer the product as one solution," or "Community member is confusing 'Hope' with 'Action Points.' Ensure draft clarifies this gently.").
+    4.  Correct Terminology to Use.
   agent: daggerheart_rules_expert_quality_control_specialist
   context:
   - monitor_community_discussions_for_engagement_opportunities
@@ -51,22 +61,22 @@ validate_mechanical_accuracy_of_engagement_opportunities:
 
 draft_marketing_content_and_community_responses:
   description: >-
-    Create compelling marketing content based on validated engagement
-    opportunities and market intelligence. 
-    You MUST FIRST read the company's product catalog from 'knowledge/products.json' 
-    and feature these specific products in your content.
-    You MUST ALSO read the validation report from 'validation_report.txt' 
-    AND the market intelligence from 'market_intelligence_report.txt'.
-    Draft: community responses for approved
-    engagement opportunities, social media posts highlighting our {product_focus},
-    promotional content that leads with value and subtly mentions products, content
-    that demonstrates expertise while maintaining Ettin Entertainment's helpful,
-    community-focused brand voice. All drafts must incorporate Rules Expert guidance
-    and avoid any mechanical errors.
-  expected_output: 'A collection of ready-to-publish marketing content including:
-    drafted community responses with proper Daggerheart terminology, social media
-    posts optimized for each platform, promotional copy that prioritizes value over
-    sales pitch, and content calendar suggestions based on market intelligence findings.'
+    Act as the official voice of Ettin Entertainment.
+    Your job is to synthesize all inputs into publish-ready content.
+    You MUST read:
+    1.  'knowledge/products.json' (for product details, titles, and URLs).
+    2.  'knowledge/brand_voice_guide.json' (for your persona and all brand rules).
+    3.  'validation_report.txt' (for the approved opportunities and guidance).
+    4.  'market_intelligence_report.txt' (for the proactive campaign strategies).
+    You will draft two types of content:
+    1.  **Reactive Content:** Craft community responses based on the validated opportunities. These MUST lead with value, be genuinely helpful, and only mention a product {product_focus} subtly and where appropriate.
+    2.  **Proactive Content:** Draft new social media posts based on the Synergy Map and Proactive Campaigns from the intelligence report.
+    **CRITICAL:** You MUST adhere to the "Marketer, Not Maker" rule. Your persona is the professional voice of the 'Ettin Entertainment' brand. Do NOT mention the creation process, team size, or any behind-the-scenes info unless it is explicitly in the 'brand_voice_guide.json'.
+  expected_output: >-
+    A collection of ready-to-publish marketing content (drafted_marketing_content.txt).
+    This includes:
+    1.  Drafted community responses, optimized for each platform, using correct Daggerheart terminology and a helpful, on-brand voice.
+    2.  A full content calendar of proactive social media posts that execute the campaigns from the market intelligence report, complete with hashtags and direct links to products from 'products.json'.
   agent: content_response_writer_with_brand_voice_expertise
   context:
   - validate_mechanical_accuracy_of_engagement_opportunities
@@ -75,21 +85,19 @@ draft_marketing_content_and_community_responses:
 
 final_quality_control_and_content_validation:
   description: >-
-    Perform final validation of all drafted marketing content before publication.
-    You MUST read the content from the file 'drafted_marketing_content.txt'.
-    Review each piece for: 
-    1.  **Common Sense & Temporal Relevance (e.g., do not promote Halloween in November).**
-    2.  Mechanical accuracy and proper Daggerheart terminology.
-    3.  Alignment with official design principles (asymmetrical mechanics, Fear/Hope economy,
-    spotlight system).
-    4.  Brand voice consistency.
-    5.  Product claims accuracy.
-    6.  Ensure no D&D terminology contamination (rounds, initiative, CR, etc.). 
-    Provide final approval or request revisions with specific guidance.
-  expected_output: 'A finalized content package with quality control stamps including:
-    approved social media responses and posts, validated product descriptions and
-    promotional content, mechanical accuracy confirmation for all claims, final publication
-    recommendations, and a quality control log documenting any corrections made.'
+    Act as the final, ruthless Gatekeeper and Editor before publication.
+    You MUST read the content from 'drafted_marketing_content.txt'.
+    You MUST ALSO read 'knowledge/products.json' and 'knowledge/brand_voice_guide.json'.
+    Your job is to be an editor with final cut authority. **You must actively filter and remove any content that is not 100% accurate, on-brand, and temporally relevant.**
+    Review each piece for:
+    1.  **Temporal Relevance (CRITICAL):** Cross-reference all content with the current date. If a post promotes a 'Halloween' product from 'products.json' and the date is November 7th, that content MUST be removed.
+    2.  **Brand Voice & "Garbage" Filter:** Does it sound like a human expert, or a generic, spammy bot? Does it violate the persona in 'brand_voice_guide.json'? If it's "garbage," remove it.
+    3.  **Product Accuracy:** Does the post use the *exact* product title, tier, and themes as listed in 'knowledge/products.json'?
+    4.  **Mechanical Accuracy:** Final check for correct Daggerheart terminology.
+  expected_output: >-
+    **A new, finalized content package (final_content_package.txt) containing ONLY the content you have personally approved.**
+    This package must be 100% accurate, on-brand, and temporally relevant.
+    **Do not include any content you would revise, edit, or remove.** Only include the final, publishable drafts.
   agent: daggerheart_rules_expert_quality_control_specialist
   context:
   - draft_marketing_content_and_community_responses
