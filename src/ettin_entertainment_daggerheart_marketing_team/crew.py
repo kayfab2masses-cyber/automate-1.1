@@ -47,8 +47,11 @@ class EttinEntertainmentDaggerheartMarketingTeamCrew:
             config=self.agents_config["community_engagement_strategist_social_media_scout"],
 
 
-            tools=[				ScrapeWebsiteTool(),
-				SerperDevTool()],
+            tools=[
+                ScrapeWebsiteTool(),
+				SerperDevTool(),
+                SafeFileReadTool() # ADDED THIS TOOL
+            ],
             reasoning=False,
             max_reasoning_attempts=None,
             inject_date=True,
@@ -94,8 +97,11 @@ class EttinEntertainmentDaggerheartMarketingTeamCrew:
             config=self.agents_config["market_intelligence_synergy_analyst"],
 
 
-            tools=[				SerperDevTool(),
-				ScrapeWebsiteTool()],
+            tools=[
+                SerperDevTool(),
+				ScrapeWebsiteTool(),
+                SafeFileReadTool() # ADDED THIS TOOL
+            ],
             reasoning=False,
             max_reasoning_attempts=None,
             inject_date=True,
