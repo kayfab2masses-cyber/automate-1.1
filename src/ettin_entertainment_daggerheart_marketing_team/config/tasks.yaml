@@ -49,8 +49,10 @@ validate_mechanical_accuracy_of_engagement_opportunities:
 draft_marketing_content_and_community_responses:
   description: >-
     Create compelling marketing content based on validated engagement
-    opportunities and market intelligence. 
-    You MUST read the validation report from 'validation_report.txt' 
+    opportunities and market intelligence.
+    You MUST FIRST read the company's product catalog from 'knowledge/products.json' 
+    and feature these specific products in your content.
+    You MUST ALSO read the validation report from 'validation_report.txt' 
     AND the market intelligence from 'market_intelligence_report.txt'.
     Draft: community responses for approved
     engagement opportunities, social media posts highlighting our {product_focus},

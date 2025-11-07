@@ -72,7 +72,7 @@ class EttinEntertainmentDaggerheartMarketingTeamCrew:
             config=self.agents_config["content_response_writer_with_brand_voice_expertise"],
             
             
-            tools=[],
+            tools=[FileReadTool()],
             reasoning=False,
             max_reasoning_attempts=None,
             inject_date=True,
