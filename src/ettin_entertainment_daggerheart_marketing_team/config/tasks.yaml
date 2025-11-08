@@ -45,17 +45,25 @@ validate_mechanical_accuracy_of_engagement_opportunities:
     You MUST read the engagement opportunities from 'engagement_opportunities.txt'.
     You MUST ALSO read the 'knowledge/brand_voice_guide.json' file to load the official Ettin Entertainment persona.
     For each opportunity, you must perform two checks:
-    1.  **Brand & Tone Validation:** Review the 'Suggested Engagement Angle.' Does it align with the 'helpful, expert, non-spammy' persona defined in the brand guide?
-    2.  **Mechanical Validation:** Review any Daggerheart mechanical topics mentioned. Verify accuracy, provide correct terminology (e.g., "spotlight," "Fear/Hope"), and confirm our {product_focus} genuinely addresses the user's question.
+    1.  **Brand & Tone Validation:** Review the 'Suggested Engagement Angle.'
+    2.  **Mechanical Validation:** Review any Daggerheart mechanical topics mentioned.
     You must flag any potential errors or brand-voice violations and provide guidance for the writer.
-    **CRITICAL: Your output report MUST include the original URL for each opportunity.**
   expected_output: >-
-    A validation report (validation_report.txt) for each engagement opportunity containing:
-    **1.  URL:** (The original URL from the engagement opportunity)
-    2.  Brand Voice Approval:
-    3.  Mechanical Accuracy Assessment:
-    4.  Corrections & Guidance: (e.g., "Angle is too salesy. Re-frame to lead with 3 general tips for spooky games, *then* offer the product as one solution," or "Community member is confusing 'Hope' with 'Action Points.' Ensure draft clarifies this gently.").
-    5.  Correct Terminology to Use.
+    You MUST produce a single block of text that follows this exact template. Do not use any markdown asterisks.
+
+    1. URL: [Insert URL for Opportunity 1 from engagement_opportunities.txt]
+       Brand Voice Approval: [Your approval or rejection]
+       Mechanical Accuracy Assessment: [Your assessment]
+       Corrections & Guidance: [Your guidance for the writer]
+       Correct Terminology to Use: [Any specific terms]
+
+    2. URL: [Insert URL for Opportunity 2 from engagement_opportunities.txt]
+       Brand Voice Approval: [Your approval or rejection]
+       Mechanical Accuracy Assessment: [Your assessment]
+       Corrections & Guidance: [Your guidance for the writer]
+       Correct Terminology to Use: [Any specific terms]
+    
+    (continue for all 5 opportunities)
   agent: daggerheart_rules_expert_quality_control_specialist
   context:
   - monitor_community_discussions_for_engagement_opportunities
@@ -70,15 +78,34 @@ draft_marketing_content_and_community_responses:
     2.  'knowledge/brand_voice_guide.json' (for your persona and all brand rules).
     3.  'validation_report.txt' (for the approved opportunities and guidance).
     4.  'market_intelligence_report.txt' (for the proactive campaign strategies).
-    You will draft two types of content:
-    **1.  Reactive Content: You MUST iterate through each opportunity in 'validation_report.txt'. For each one, you must draft a specific, contextual reply that follows the guidance. You MUST include the original URL for each reply.**
-    2.  Proactive Content: Draft new social media posts based on the Synergy Map and Proactive Campaigns from the intelligence report.
-    **CRITICAL:** You MUST adhere to the "Marketer, Not Maker" rule. Your persona is the professional voice of the 'Ettin Entertainment' brand. Do NOT mention the creation process, team size, or any behind-the-scenes info unless it is explicitly in the 'brand_voice_guide.json'.
+    You will draft two types of content.
   expected_output: >-
-    A collection of ready-to-publish marketing content (drafted_marketing_content.txt).
-    This includes:
-    **1.  Drafted Community Responses: A list of ready-to-publish replies. Each reply MUST be paired with its original URL (from the 'validation_report.txt') so the user knows exactly where to post it.**
-    2.  A full content calendar of proactive social media posts that execute the campaigns from the market intelligence report, complete with hashtags and direct links to products from 'products.json'.
+    You MUST produce a single block of text that follows this exact template. Do not use any markdown asterisks.
+
+    ### Reactive Content (Community Responses)
+
+    1. URL_TO_POST: [Insert URL from validation_report.txt]
+       DRAFTED_REPLY: [Insert your drafted reply for this URL, following the brand voice and guidance]
+
+    2. URL_TO_POST: [Insert next URL from validation_report.txt]
+       DRAFTED_REPLY: [Insert your drafted reply for this URL, following the brand voice and guidance]
+
+    (continue for all opportunities from the validation_report.txt)
+
+    ---
+
+    ### Proactive Content (Social Media Posts Calendar)
+
+    [CAMPAIGN_NAME_1_FROM_MARKET_REPORT]
+
+    - Week 1 Post: [Drafted post text]
+    - Week 2 Post: [Drafted post text]
+    - (etc.)
+
+    [CAMPAIGN_NAME_2_FROM_MARKET_REPORT]
+
+    - Week 1 Post: [Drafted post text]
+    - (etc.)
   agent: content_response_writer_with_brand_voice_expertise
   context:
   - validate_mechanical_accuracy_of_engagement_opportunities
@@ -90,17 +117,36 @@ final_quality_control_and_content_validation:
     Act as the final, ruthless Gatekeeper and Editor before publication.
     You MUST read the content from 'drafted_marketing_content.txt'.
     You MUST ALSO read 'knowledge/products.json' and 'knowledge/brand_voice_guide.json'.
-    Your job is to be an editor with final cut authority. **You must review BOTH the 'Reactive Content' and 'Proactive Content' sections from the draft file.**
+    Your job is to be an editor with final cut authority. You must review BOTH the 'Reactive Content' and 'Proactive Content' sections from the draft file.
     Review each individual post for:
     1.  **Temporal Relevance (CRITICAL):** Cross-reference all content with the current date (**November 7th, 2025**). If a post mentions 'Halloween' as upcoming, it is temporally irrelevant and **MUST BE DELETED**.
-    2.  **Brand Voice & "Garbage" Filter:** Does it sound like a human expert, or a generic, spammy bot? Does it violate the persona in 'brand_voice_guide.json'? If it's "garbage," remove it.
+    2.  **Brand Voice & "Garbage" Filter:** Does it sound like a human expert, or a generic, spammy bot? If it's "garbage," remove it.
     3.  **Product Accuracy:** Does the post use the *exact* product title, tier, and themes as listed in 'knowledge/products.json'?
     4.  **Mechanical Accuracy:** Final check for correct Daggerheart terminology.
   expected_output: >-
-    **The FULL, EDITED content package (final_content_package.txt).**
-    This package MUST include **BOTH** the approved 'Reactive Content' (community responses) AND the approved 'Proactive Content' (social media calendar).
-    **You must not delete the entire reactive section.** You must review each post one-by-one and only remove the specific posts that fail validation (like the Halloween post).
-    **The final Reactive Content section MUST include the URL for each reply.**
+    You MUST produce a single block of text that follows this exact template. Do not use any markdown asterisks.
+
+    ### Reactive Content (Community Responses)
+
+    1. URL_TO_POST: [Insert URL from draft]
+       APPROVED_REPLY: [Insert approved reply from draft]
+
+    2. URL_TO_POST: [Insert next URL from draft]
+       APPROVED_REPLY: [Insert approved reply from draft]
+
+    (continue for all approved opportunities)
+
+    ---
+
+    ### Proactive Content (Social Media Posts Calendar)
+
+    [APPROVED_CAMPAIGN_NAME_1]
+
+    - Week 1 Post: [Approved post text]
+    - Week 2 Post: [Approved post text]
+    - (etc.)
+
+    (continue for all approved, temporally-relevant campaigns)
   agent: daggerheart_rules_expert_quality_control_specialist
   context:
   - draft_marketing_content_and_community_responses
